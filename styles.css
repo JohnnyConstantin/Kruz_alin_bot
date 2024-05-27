@@ -12,14 +12,6 @@ body {
     margin-bottom: 20px;
 }
 
-.pixel-cat {
-    width: 64px;
-    height: 64px;
-    background-image: url('pixel-cat-sprite.png'); /* ссылка на спрайт с анимацией пиксельного котика */
-    background-size: cover;
-    animation: cat-animation 1s steps(10) infinite; /* настраиваем анимацию */
-}
-
 @keyframes cat-animation {
     from { background-position: 0 0; }
     to { background-position: -640px 0; } /* предположим, что в спрайте 10 кадров по 64px */
