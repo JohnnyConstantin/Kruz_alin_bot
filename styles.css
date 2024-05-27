@@ -18,23 +18,46 @@ body {
     to { background-position: -640px 0; } /* предположим, что в спрайте 10 кадров по 64px */
 }
 
+.slider-container {
+    display: flex;
+    align-items: center;
+}
+
 .swipe-container {
-    width: 80%;
-    overflow-x: scroll;
-    white-space: nowrap;
+    overflow: hidden;
+    width: 300px; /* Ширина слайдера */
 }
 
 .swipe-content {
     display: flex;
+    transition: transform 0.3s ease;
 }
 
 .text-block {
-    display: inline-block;
-    padding: 10px 20px;
-    margin: 0 10px;
+    flex: 0 0 100%; /* Каждый блок занимает 100% ширины контейнера */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px; /* Высота блока */
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 5px;
+    margin: 5px;
     cursor: pointer;
-    white-space: nowrap;
+    text-align: center;
+}
+
+.slider-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 0 10px;
+}
+
+.slider-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
 }
