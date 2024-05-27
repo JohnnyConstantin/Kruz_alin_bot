@@ -1,37 +1,31 @@
 document.addEventListener('DOMContentLoaded', () => {
     const swipeContainer = document.querySelector('.swipe-container');
-    const swipeContent = document.querySelector('.swipe-content');
-    const prevButton = document.querySelector('.slider-button.prev');
-    const nextButton = document.querySelector('.slider-button.next');
     const textBlocks = document.querySelectorAll('.text-block');
+    const blockHeight = 70; // Высота блока (60px) + маржин (10px)
     const blocksToShow = 5;
-    const totalBlocks = textBlocks.length;
-    const blockWidth = swipeContainer.clientWidth;
-    let currentIndex = 0;
+    const scrollStep = blockHeight * blocksToShow;
 
-    function updateButtons() {
-        prevButton.disabled = currentIndex === 0;
-        nextButton.disabled = currentIndex >= totalBlocks - blocksToShow;
-    }
+    swipeContainer.addEventListener('scroll', () => {
+        const scrollTop = swipeContainer.scrollTop;
+        const maxScrollTop = swipeContainer.scrollHeight - swipeContainer.clientHeight;
 
-    function slideToIndex(index) {
-        swipeContent.style.transform = `translateX(-${index * blockWidth}px)`;
-        currentIndex = index;
-        updateButtons();
-    }
-
-    prevButton.addEventListener('click', () => {
-        if (currentIndex > 0) {
-            slideToIndex(currentIndex - 1);
+        // Check if we are at the bottom or top and adjust scroll position
+        if (scrollTop + swipeContainer.clientHeight >= maxScrollTop) {
+            swipeContainer.scrollTop = maxScrollTop;
+        } else if (scrollTop <= 0) {
+            swipeContainer.scrollTop = 0;
         }
     });
 
-    nextButton.addEventListener('click', () => {
-        if (currentIndex < totalBlocks - blocksToShow) {
-            slideToIndex(currentIndex + 1);
-        }
-    });
+    swipeContainer.addEventListener('wheel', (event) => {
+        event.preventDefault();
+        const scrollTop = swipeContainer.scrollTop;
+        const direction = event.deltaY > 0 ? 1 : -1;
+        const newScrollTop = scrollTop + (direction * scrollStep);
 
-    // Initialize
-    updateButtons();
+        swipeContainer.scrollTo({
+            top: newScrollTop,
+            behavior: 'smooth'
+        });
+    });
 });

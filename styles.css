@@ -20,44 +20,30 @@ body {
 
 .slider-container {
     display: flex;
+    flex-direction: column;
     align-items: center;
 }
 
 .swipe-container {
-    overflow: hidden;
-    width: 300px; /* Ширина слайдера */
+    height: 300px; /* Высота контейнера под 5 элементов, каждый по 60px + маржин */
+    overflow-y: auto;
+    width: 200px; /* Ширина контейнера */
 }
 
 .swipe-content {
     display: flex;
-    transition: transform 0.3s ease;
+    flex-direction: column;
 }
 
 .text-block {
-    flex: 0 0 100%; /* Каждый блок занимает 100% ширины контейнера */
-    display: flex;
-    align-items: center;
-    justify-content: center;
     height: 60px; /* Высота блока */
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 5px;
-    margin: 5px;
+    margin: 5px 0; /* Маржин для блоков */
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
     text-align: center;
-}
-
-.slider-button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    margin: 0 10px;
-}
-
-.slider-button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
 }
