@@ -1,3 +1,7 @@
+html{
+    height: 50vh;
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -55,6 +59,7 @@ p{
 }
 
 .content{
+    height: 50vh;
     margin: 2rem 0 0 0;
     width: 100%;
     display: flex;
@@ -131,6 +136,10 @@ p{
 
   .checkbox-wrapper-58 input:focus-visible + .slider {
     box-shadow: 0 0 0 2px var(--track_active_color);
+  }
+
+  .checkbox-wrapper-58 input:disabled{
+      --track_color: white;
   }
 
   /* Raise thumb when hovered */
