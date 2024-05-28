@@ -162,3 +162,20 @@ p{
     transform: translateX(calc(var(--switch_width) - var(--switch_height))) translateY(-0.3em);
     box-shadow: 0 0.3em 0 var(--outline_color);
   }
+
+  .button-2d {
+            padding: 10px 20px;
+            border: 2px solid #333;
+            background-color: #fff;
+            color: #333;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            margin-top: 20px;
+        }
+        .button-2d:hover {
+            background-color: #333;
+            color: #fff;
+        }

@@ -43,3 +43,23 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const getValuesButton = document.getElementById('getValuesButton');
+
+    getValuesButton.addEventListener('click', () => {
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        const valuesArray = Array.from(checkboxes).map(checkbox => checkbox.checked ? 1 : 0);
+
+        console.log(valuesArray);
+    });
+
+    function displayValues(values) {
+        const displayElement = document.createElement('div');
+        displayElement.textContent = 'Values: ' + values.join(', ');
+        document.body.appendChild(displayElement);
+    }
+
+});
+
+Telegram.WebApp.sendData("just testing")
