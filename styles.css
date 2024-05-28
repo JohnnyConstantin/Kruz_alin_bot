@@ -53,6 +53,11 @@ body {
     flex-direction: column;
 }
 
+h2{
+    font-family: Courier, monospace;
+    margin: 1rem;
+}
+
 p{
     margin: 0 0 0 2rem;
     font-family: Courier, monospace;

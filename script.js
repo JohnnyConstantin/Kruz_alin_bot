@@ -20,3 +20,26 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const sleep = [document.getElementById('4'), document.getElementById('5'),  document.getElementById('6') ];
+
+    sleep.forEach(checkbox => {
+        checkbox.addEventListener('change', () => {
+            if (checkbox.checked) {
+                sleep.forEach(otherCheckbox => {
+                    if (otherCheckbox !== checkbox) {
+                        otherCheckbox.disabled = true;
+                    }
+                });
+            } else {
+                const anyChecked = sleep.some(cb => cb.checked);
+                if (!anyChecked) {
+                    sleep.forEach(otherCheckbox => {
+                        otherCheckbox.disabled = false;
+                    });
+                }
+            }
+        });
+    });
+});
